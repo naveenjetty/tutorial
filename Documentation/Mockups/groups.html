@@ -19,7 +19,7 @@
 <form>
 <input type=button value="Friends" onclick="location='friends.html'">
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<input type=button value="Groups" onclick="location='groups.html'">
+<input type=button value="Groups" onclick="location='groups.html'" disabled>
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <input type=button value="Conversations" onclick="location='conversations.html'">
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -28,13 +28,32 @@
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 Naveen Jetty&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <input type=button value="logout" onclick="location='login.html'">
-<br><br><br><br><br>
-<h2>Recent Conversations</h2>
-<select name="Recent Conversations" size="5">
-  <option>Friend1:ssd...</option>
-  <option>Group1:sdas...</option>
-  <option>Friend2:sdas....</option>
+<br><br><br>
+<h2>Groups</h2><br><br>
+Group List
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+Group 1
+<br>
+<select name=groups size=3>
+<option>group1</option>
+<option>group2</option>
+<option>group3</option>
+</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<select name=group1 size=3>
+<option>friend1</option>
+<option>friend2</option>
+<option>friend3</option>
 </select>
+<br><br><br>
+<input type=text value="enter friend mail">
+<input type=text value="enter group name">
+<input type=button value="Add to group">
 </form>
 </div>
 </center>

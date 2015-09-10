@@ -17,7 +17,7 @@
 <div id="top"> </div>
 
 <form>
-<input type=button value="Friends" onclick="location='friends.html'">
+<input type=button value="Friends" onclick="location='friends.html'" disabled>
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <input type=button value="Groups" onclick="location='groups.html'">
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -28,15 +28,18 @@
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 Naveen Jetty&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <input type=button value="logout" onclick="location='login.html'">
-<br><br><br><br><br>
-<h2>Recent Conversations</h2>
-<select name="Recent Conversations" size="5">
-  <option>Friend1:ssd...</option>
-  <option>Group1:sdas...</option>
-  <option>Friend2:sdas....</option>
+<br><br><br>
+<h2>Friends List</h2><br><br>
+<select name=friends size=3>
+<option>Friend1</option>
+<option>Friend2</option>
+<option>Friend3</option>
 </select>
+<br><br>
+<input type=text value="Enter mail id to invite new friends"><input type=button value=invite>
 </form>
 </div>
+
 </center>
 </body>
 </html>
