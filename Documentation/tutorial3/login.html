@@ -1,0 +1,45 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<script>
+function validateForm(){
+	 var x = document.forms["loginform"]["uname"].value;
+	 var y = document.forms["loginform"]["password"].value;
+	 if (x == null || x == ""|| y == null || y == "") {
+	        alert("Username and Password must be filled out");
+	        return false;
+	    } else if (x!="naveen@yahoo.com"|| y!="password")
+	    	{
+	    	alert("Incorrect Username or Password");
+	    	return false;
+	    	}
+}
+</script>0
+</head>
+<body BGCOLOR="#000000" TEXT="#80c0c0" LINK="#ff8080">
+<center>
+<div id="wrap">
+
+<div id="header">
+<h1><a href="#">Weather</a></h1>
+</div>
+
+<div id="top"> </div>
+
+<form name="loginform" action="home.html" onsubmit="return validateForm()" method=post>
+<input type="button" value="Login to your account" disabled>
+<input type="button" value="No account Click Here" onclick="location='newaccount.html'">
+<br>
+Mail:
+<input type=text name=uname>
+<br>
+Password:
+<input type=password name=password>
+<br>
+<input type=submit value=submit>
+</form>
+</div>
+</center>
+
+</body>
+</html>

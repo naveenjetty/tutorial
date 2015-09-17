@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="" data-ng-app="GoogleDirection">
+<head>
+  <meta t="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=weather"">
+</script>
+  <link rel="stylesheet" href="style.css">  
+    
+    <style>
+     #map-canvas {
+    width: 500px;
+    height: 400px;
+}
+     #directionsPanel {
+        width: 700px;
+        height: 400px;
+      }
+    </style>
+</head>
+<body BGCOLOR="#000000" TEXT="#80c0c0" LINK="#ff8080">
+<center>
+<div id="wrap">
+<div id="header">
+<h1><a href="#">Weather</a></h1>
+</div>
+
+<div id="top"> </div>
+</div>
+</center>
+<div class="wrapp" ng-controller="googlemapoutput">
+         <div class="row">
+                <input type="text"  ng-model="startlocation" id="startlocation"/>
+                <input type="text"  ng-model="endlocation" id="endlocation" /> 
+                <button id="btn" ng-click="calcRoute()">
+                    Get Direction
+                </button>
+                 <br/></br>
+            </div>
+            <div id="map-canvas" style="height: 400px;"></div>
+            <div id="directionsPanel" style="float:right"></div>
+            
+        </div>
+    </body>
+</html>
+<script>
+angular.module('GoogleDirection', [])
+.controller('googlemapoutput', function ($scope) {
+
+    var map;
+    var trafficLayer;
+    var weatherLayer;
+    var directionsDisplay;
+    var mapOptions;
+    var directionsDisplay;
+    var directionsService = new google.maps.DirectionsService();
+
+    $scope.initialize = function () {
+          var pos = new google.maps.LatLng(0, 0); 
+          var mapOptions = {
+                zoom: 3,
+                center: pos,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };	
+
+            var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+            trafficLayer = new google.maps.TrafficLayer();
+            weatherLayer = new google.maps.weather.WeatherLayer({
+                                    temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
+                                  });
+            directionsDisplay = new google.maps.DirectionsRenderer();
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+
+     };
+    $scope.calcRoute = function () {
+       var end = document.getElementById('endlocation').value;
+            var start = document.getElementById('startlocation').value;
+
+            var request = {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                    console.log(status);
+                }
+           
+        });
+    };
+
+    google.maps.event.addDomListener(window, 'load', $scope.initialize);
+
+});
+</script>
